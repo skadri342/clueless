@@ -1,13 +1,23 @@
 import React from 'react';
+import memesData from '../memesData';
 
 export default function Body() {
+    function getMemeImage() {
+        const memesArray = memesData.data.memes
+
+        const random = Math.floor(Math.random()*memesArray.length);
+
+        const url = memesArray[random].url;
+        console.log(url);
+    }
+
     return (
         <div className='container'>
             <p className='textbox'>
                 <input type="text" placeholder='Top Text'/>
                 <input type="text" placeholder='Bottom Text'/>
             </p>
-            <p><button>Get a new meme image 🖼</button></p>
+            <p><button onClick={getMemeImage}>Get a new meme image 🖼</button></p>
 
             <div className='image'>
                 
@@ -15,3 +25,4 @@ export default function Body() {
         </div>
     )
 }
+
